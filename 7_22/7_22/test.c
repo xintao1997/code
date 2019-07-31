@@ -23,16 +23,16 @@ flag:
 	scanf("%d", &choice);
 	switch (choice)
 	{
-	case 1:
+	case 1: //电脑先落子
 		do
 		{
-			computer_move(board, ROWS, COLS);
-			show_board(board, ROWS, COLS);
-			win = check_win(board, ROWS, COLS);
-			if (win != 0)
+			computer_move(board, ROWS, COLS);   //电脑落子
+			show_board(board, ROWS, COLS);      //打印棋盘
+			win = check_win(board, ROWS, COLS); 
+			if (win != 0)  //没赢
 				break;
-			player_move(board, ROWS, COLS);
-			show_board(board, ROWS, COLS);
+			player_move(board, ROWS, COLS);     //玩家落子
+			show_board(board, ROWS, COLS);      // 打印棋盘
 			win = check_win(board, ROWS, COLS);
 		} while (win == 0);
 		if (win == '#')
@@ -42,7 +42,7 @@ flag:
 		if (win == 'q')
 			printf("平局\n");
 		break;
-	case 2:
+	case 2: //玩家先落子
 		show_board(board, ROWS, COLS);
 		do
 		{
@@ -59,7 +59,6 @@ flag:
 			printf("很遗憾，你输了!\n");
 		if (win == '*')
 			printf("恭喜，你赢了!\n");
-			break;
 		if (win == 'q')
 			printf("平局\n");
 		break;
@@ -71,10 +70,10 @@ flag:
 int main()
 {
 	int choice;
-	srand((unsigned int)time(NULL));
+	srand((unsigned int)time(NULL));//产生随机数
 	do
 	{
-		menu();
+		menu();  
 		printf("请选择:");
 		scanf("%d", &choice);
 		switch (choice)

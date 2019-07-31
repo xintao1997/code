@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"head.h"
 
-void show_board(char board[ROWS][COLS], int rows, int cols)
+void show_board(char board[ROWS][COLS], int rows, int cols)//打印棋盘
 {
 	int i;
 	for (int i = 0; i < rows; i++)
@@ -12,7 +12,7 @@ void show_board(char board[ROWS][COLS], int rows, int cols)
 	}
 }
 
-void init_board(char board[ROWS][COLS], int rows, int cols)
+void init_board(char board[ROWS][COLS], int rows, int cols)//将数组初始化为空格
 {
 	int i, j;
 	for (i = 0; i < rows; i++)
@@ -24,7 +24,24 @@ void init_board(char board[ROWS][COLS], int rows, int cols)
 	}
 }
 
-void computer_move(char board[ROWS][COLS], int rows, int cols)
+
+//void computer_move(char board[ROWS][COLS], int rows, int cols)// 电脑落子
+//{
+//
+//	int x, y;
+//	printf("电脑落子:\n");
+//	while (1)
+//	{
+//		x = rand() % rows;
+//		y = rand() % cols;
+//		if (board[x][y] == ' ')
+//		{
+//			board[x][y] = '#';
+//			break;
+//		}
+//	}
+//}
+void computer_move(char board[ROWS][COLS], int rows, int cols)//智能化电脑落子
 {
 	int x, y, i;
 	printf("电脑落子:\n");
@@ -167,7 +184,7 @@ void computer_move(char board[ROWS][COLS], int rows, int cols)
 flag1:;
 }
 
-void player_move(char board[ROWS][COLS], int rows, int cols)
+void player_move(char board[ROWS][COLS], int rows, int cols)//玩家落子
 {
 	int x, y;
 	printf("玩家落子:\n");
@@ -187,7 +204,7 @@ void player_move(char board[ROWS][COLS], int rows, int cols)
 	}
 }
 
-static int is_full(char board[ROWS][COLS], int rows, int cols)
+static int is_full(char board[ROWS][COLS], int rows, int cols)//检测是否为平局
 {
 	int i, j;
 	for (i = 0; i < rows; i++)
@@ -201,7 +218,7 @@ static int is_full(char board[ROWS][COLS], int rows, int cols)
 	return 1;
 }
 
-char check_win(char board[ROWS][COLS], int rows, int cols)
+char check_win(char board[ROWS][COLS], int rows, int cols)//判断输赢
 {
 	int i;
 	for (i = 0; i < rows; i++)
