@@ -134,17 +134,19 @@
 //	return 0;
 //}
 
-实现memcpy 
+//实现memcpy 
 
 
-char* my_memcpy(char* dest, char* str,int a)
+void* my_memcpy(void* dest,const void* str,int a)
 {
     assert(dest != NULL);
     assert(str != NULL);
-	char* cp = dest;
+	void* cp = dest;
 	while(a--)
 	{
-		*dest++ = *str++;
+		*(char*)dest = *(char*)str;
+		((char*)dest)++;
+		((char*)str)++;
 	}
 	return cp;
 }
