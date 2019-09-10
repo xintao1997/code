@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
 	SeqList mylist;
 	SeqListlnit(&mylist, 8);
 	DataType item;
+	int pos, index;
+	bool flag;
 	int select = 1;
 	while (select)
 	{
@@ -45,10 +47,71 @@ int main(int argc, char *argv[])
 			break;
 		case 4:
 			SeqListPopBack(&mylist);
+			break;
 		case 5:
 			SeqListPopFront(&mylist);
+			break;
 		case 6:
-
+			printf("请输入要查询的位置:>");
+			scanf("%d", &pos);
+			printf("要查询的数据为：%d\n",SeqListFindByPos(&mylist, pos));
+			break;
+		case 7:
+			printf("请输入要查询的数:>");
+			scanf("%d", &item);
+			index = SeqListFindByVal(&mylist, item);
+			if (index == -1)
+				printf("要查询的数据不存在.\n");
+			else
+				printf("要查询的数据下标是:>%d\n", index);
+			break;
+		case 8:
+			printf("请输入要插入的位置:>");
+			scanf("%d", &pos);
+			printf("请输入要插入的数据:>");
+			scanf("%d", &item);
+			flag = SeqListInsertByPos(&mylist, pos, item);
+			if (flag)
+				printf("插入成功\n");
+			else
+				printf("插入失败\n");
+			break;
+		case 9:
+			printf("请输入要删除的数据:>");
+			scanf("%d", &item);
+			flag = SeqListEraseByVal(&mylist, item);
+			if (flag)
+				printf("删除%d成功.\n", item);
+			else
+				printf("删除%d失败.\n", item);
+			break;
+		case 10:
+			printf("请输入要删除的位置:>");
+			scanf("%d", &pos);
+			flag = SeqListEraseByPos(&mylist, pos);
+			if (flag)
+				printf("删除成功.\n");
+			else
+				printf("删除失败.\n");
+			break;
+		case 11:
+			printf("SeqList Length = %d\n", SeqListLength(&mylist));
+			break;
+		case 12:
+			printf("请输入要删除的数据:>");
+			scanf("%d", &item);
+			SeqListRemoveAll(&mylist, item);
+			break;
+		case 13:
+			SeqListReverse(&mylist);
+			break;
+		case 14:
+			SeqListSort(&mylist);
+			break;
+		case 15:
+			SeqListClear(&mylist);
+			break;
+		
 		}
 	}
 	return 0;

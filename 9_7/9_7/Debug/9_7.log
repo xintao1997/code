@@ -1,10 +1,20 @@
-﻿生成启动时间为 2019/9/7 19:51:38。
+﻿生成启动时间为 2019/9/10 20:43:39。
      1>项目“F:\Code\code\9_7\9_7\9_7.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          E:\vc\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt tsetMain.c
          tsetMain.c
-     1>f:\code\code\9_7\9_7\seqlist.h(53): warning C4018: “<”: 有符号/无符号不匹配
-     1>f:\code\code\9_7\9_7\seqlist.h(75): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(37): warning C4013: “memcpy”未定义；假设外部返回 int
+     1>f:\code\code\9_7\9_7\seqlist.h(86): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(108): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(117): warning C4018: “>=”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(126): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(135): warning C4018: “>”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(151): warning C4018: “>=”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(153): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(172): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(176): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(201): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\code\code\9_7\9_7\seqlist.h(203): warning C4018: “<”: 有符号/无符号不匹配
        Link:
          E:\vc\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Code\code\9_7\Debug\9_7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Code\code\9_7\Debug\9_7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Code\code\9_7\Debug\9_7.lib" /MACHINE:X86 Debug\tsetMain.obj
          9_7.vcxproj -> F:\Code\code\9_7\Debug\9_7.exe
@@ -12,4 +22,4 @@
 
 生成成功。
 
-已用时间 00:00:00.90
+已用时间 00:00:00.47

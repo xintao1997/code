@@ -5,7 +5,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
-
+#include<stdbool.h>
 #define DataType int
+#define DEFAULT_SIZE 8
+#define INC_SIZE      3
+void Swap(DataType *a, DataType *b)
+{
+	DataType tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
 #endif /* _COMMON_H_ */
