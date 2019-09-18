@@ -1,0 +1,15 @@
+﻿生成启动时间为 2019/9/18 17:43:31。
+     1>项目“F:\Code\code\9_15循环双链表\9_15循环双链表\9_15循环双链表.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\vc\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt TestMain.c
+         TestMain.c
+     1>f:\code\code\9_15循环双链表\9_15循环双链表\dclist.h(48): warning C4133: “初始化”: 从“DCListNode *”到“DCList *”的类型不兼容
+     1>f:\code\code\9_15循环双链表\9_15循环双链表\dclist.h(49): warning C4133: “=”: 从“DCList *”到“DCListNode *”的类型不兼容
+       Link:
+         E:\vc\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Code\code\9_15循环双链表\Debug\9_15循环双链表.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Code\code\9_15循环双链表\Debug\9_15循环双链表.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Code\code\9_15循环双链表\Debug\9_15循环双链表.lib" /MACHINE:X86 Debug\TestMain.obj
+         9_15循环双链表.vcxproj -> F:\Code\code\9_15循环双链表\Debug\9_15循环双链表.exe
+     1>已完成生成项目“F:\Code\code\9_15循环双链表\9_15循环双链表\9_15循环双链表.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.46
