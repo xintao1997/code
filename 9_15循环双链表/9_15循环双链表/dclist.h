@@ -36,9 +36,11 @@ DCListNode* DCListFindByVal(DCList* plist, DataType key);//查找数据
 bool DCListInsertByVal(DCList* plist, DataType x);//按升序插入数据
 bool DCListEraseByVal(DCList* plist, DataType x);//删除数据
 int DCListLength(DCList* plist);//求长度
-
+void DCListRemoveAll(DCList* plist, DataType x);//删除都为x的值
 void DCListReverse(DCList* plist);//逆转
+void DCListSort(DCList* plist);//排序
 
+void DCListClear(DCList* plist);//清除
 
 
 
@@ -91,27 +93,30 @@ DCListNode* DCListFindByVal(DCList* plist, DataType key)//查找数据
 {
 	assert(plist != NULL);
 	DCListNode *p = plist->first->next;
-	while (p != plist->first && p->data != key)
+	while (p != plist->first)
+	{
+		if (p->data == key)
+			return p;
 		p = p->next;
-	return p;
+	}
+	return NULL;
 }
 bool DCListInsertByVal(DCList* plist, DataType x)//按升序插入数据
 {
 	assert(plist != NULL);
 	DCListNode *p = _Buynode(x);
 	DCListNode *q = plist->first->next;
-	while (q != plist->first && q->next->data<x)
+	while (q != plist->first && q->data<x)
 		q = q->next;
-		if (p == plist->first)
+		if (q == plist->last)
 			plist->last = p;
 		else
 		{
-			p->next = q->next;
-			p->prev = q;
-			q->next->prev = p;
-			q->next = p;
+			p->next = q;
+			p->prev = q->prev;
+			q->prev->next = p;
+			q->prev = p;
 		}
-		q = q->next;
 		plist->size++;
 	
 	return true;
@@ -119,23 +124,18 @@ bool DCListInsertByVal(DCList* plist, DataType x)//按升序插入数据
 bool DCListEraseByVal(DCList* plist, DataType x)//删除数据
 {
 	assert(plist != NULL);
-	DCListNode *p = plist->first;
 	DCListNode *s = DCListFindByVal(plist, x);
-	if (s = NULL)
+	if (s == NULL)
 		return false;
-	while (p->next != s)
-	{
-        p = p->next;
-	}
-		
-	if (s == plist->last)
-		plist->last = p;
+	else if (s == plist->last)
+		plist->last = s->prev;
 	else
-	{
-        p->next = s->next;
-		s->next->prev = p;
+	{ 
+		s->prev->next = s->next;
+	    s->next->prev = s->prev;
 	}
-	free(s);
+       
+	
 	plist->size--;
 	return true;
 }
@@ -152,7 +152,7 @@ void DCListReverse(DCList* plist)//逆转
 	plist->last = p;
 	plist->last->next = plist->first;
 	plist->first->prev = plist->last;
-	while (q != NULL)
+	while (q != plist->first)
 	{
 		p = q;
 		q = q->next;
@@ -162,7 +162,70 @@ void DCListReverse(DCList* plist)//逆转
 		p->prev = p;
 	}
 }
+void DCListSort(DCList* plist)//排序
+{
+	DCListNode *p = plist->first->next;
+	DCListNode *q = p->next;
+	plist->last = p;
+	plist->last->next = plist->first;
+	plist->first->prev = plist->last;
 
+	DCListNode *cur;
+	while (q != plist->first)
+	{
+		p = q;
+		q = q->next;
+
+		cur = plist->first->next;
+		while (cur != plist->first && cur->data < p->data)
+			cur = cur->next;
+		if (cur == plist->first) 
+		{
+			p->prev = plist->last;
+			plist->last->next = p;
+			plist->last = p;
+			plist->last->next = plist->first;
+			plist->first->prev = plist->last;
+			continue;
+		}
+
+		p->next = cur;
+		p->prev = cur->prev;
+		p->prev->next = p;
+		cur->prev = p;
+	}
+}
+void DCListRemoveAll(DCList* plist, DataType x)//删除都为x的值
+{
+	assert(plist != NULL);
+	DCListNode *p = plist->first->next;
+	while (p != plist->first)
+	{
+		if (p->data == x)
+		{
+			p->prev->next = p->next;
+			p->next->prev = p->prev;
+		}
+		p = p->next;
+	}
+	return;
+}
+
+
+void DCListClear(DCList* plist)//清除
+{
+	DCListNode *p = plist->first->next;
+	while (p != plist->first)
+	{
+		p->prev->next = p->next;
+		p->next->prev = p->prev;
+		free(p);
+		p = plist->first->next;
+	}
+	plist->last = plist->first;
+	plist->size = 0;
+
+}
 
 
 

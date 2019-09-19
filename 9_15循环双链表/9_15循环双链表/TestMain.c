@@ -77,16 +77,16 @@ int main(int argc, char *argv[])
 		case 12:
 			printf("请输入要删除的数据:>");
 			scanf("%d", &item);
-		//	DCListRemoveAll(&mylist, item);
+			DCListRemoveAll(&mylist, item);
 			break;
 		case 13:
 			DCListReverse(&mylist);
 			break;
 		case 14:
-		//	DCListSort(&mylist);
+			DCListSort(&mylist);
 			break;
 		case 15:
-		//	DCListClear(&mylist);
+			DCListClear(&mylist);
 			break;
 		}
 	}
