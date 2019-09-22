@@ -158,8 +158,8 @@ void SListClear(SList* plist)//Çå³ý
 }
 //void SListDestroy(SList *plist)
 //{
-//	SListClear(plist);
 //	free(plist->first);
+//	SListClear(plist);
 //	plist->first = plist->last = NULL;
 //	plist->size = 0;
 //}
